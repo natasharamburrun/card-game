@@ -1,13 +1,36 @@
-#dealCard {
+#dealCardplayer1 {
   display: none;
   /* height: 50px; */
 }
 
+#dealCardplayer2 {
+  display: none;
+}
+
 .cCard {
-  padding: 10px;
+  padding: 20px;
+  padding-top: 5px;
+}
+
+.eCard {
+  padding: 20px;
   padding-top: 5px;
 }
 
 #cards {
   height: 20px;
+}
+
+#cards2 {
+  height: 20px;
+}
+
+#playerOneDealCard {
+  padding: 10px;
+  margin: 10px;
+}
+
+#playerTwoDealCard {
+  padding: 10px;
+  margin: 10px;
 }

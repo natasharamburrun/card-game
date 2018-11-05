@@ -1,26 +1,26 @@
 window.onload = () => {
   const message = document.getElementById('message');
   const start = document.getElementById('start');
-  const dealCard = document.getElementById('dealCard');
+  const dealCardplayer1 = document.getElementById('dealCardplayer1');
+  const dealCardplayer2 = document.getElementById('dealCardplayer2');
+
 
   let cards = [];
   const suits = ['spades','hearts','clubs','diams'];
   const numbers = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 
   const cardOutput = document.getElementById('cards');
+  const cardOutput2 = document.getElementById('cards2');
 
   let count = 0;
-
-  const order = [];
 
   start.onclick = () => {
     message.innerHTML = 'Welcome to the game!';
     document.getElementById('start').style.display= 'none';
-    document.getElementById('dealCard').style.display= 'block';
+    document.getElementById('dealCardplayer1').style.display= 'block';
+    document.getElementById('dealCardplayer2').style.display= 'block';
     buildDeck();
     shuffleArrays(cards);
-    // playerTwo();
-    // playerOne();
   };
 
   const buildDeck = () => {
@@ -57,27 +57,28 @@ window.onload = () => {
     var bgColor = (c.icon === 'H' || c.icon === 'D')?'red':'black';
     return '<span class="cCard "style="color:'+bgColor+'">' + c.num + '&' + c.suit + ';</span>';
   };
-
-  dealCard.onclick = () => {
-    for(var i = 0; i < 6; i++) {
-      if(count < 52) {
-        count++;
-        cardOutput.innerHTML += showCard();
-      }
+  dealCardplayer1.onclick = () => {
+    // for(var i = 0; i < 6; i++) {
+    if(count < 52) {
+      count++;
+      cardOutput.innerHTML += showCard();
     }
+    // }
     return false;
   };
 
-
-  // const playerTwo = () => {
-  //   shuffleArrays(cards);
-  //   showCard();
-  //   cardOutput.innerHTML += showCard();
-  // };
-  //
-  // const playerOne = () => {
-  //   shuffleArrays(cards);
-  //   showCard();
-  //   cardOutput.innerHTML += showCard();
-  // };
+  const showCard2 = () => {
+    var e = cards[count];
+    var bgColor = (e.icon === 'H' || e.icon === 'D')?'red':'black';
+    return '<span class="eCard "style="color:'+bgColor+'">' + e.num + '&' + e.suit + ';</span>';
+  };
+  dealCardplayer2.onclick = () => {
+    // for(var i = 0; i < 6; i++) {
+    if(count < 52) {
+      count++;
+      cardOutput2.innerHTML += showCard2();
+    }
+    // }
+    return false;
+  };
 };
