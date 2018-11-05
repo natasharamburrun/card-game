@@ -1,0 +1,13 @@
+#addCard {
+  /* display: none; */
+  /* height: 50px; */
+}
+
+.sCard {
+  padding: 10px;
+  padding-top: 5px;
+}
+
+#cards {
+  height: 20px;
+}
