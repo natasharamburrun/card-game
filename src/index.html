@@ -1,59 +1,24 @@
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Worlds-simplest-poker</title>
   <script src="app.js" charset="utf-8"></script>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
   <main>
-
     <div className ="container">
       <h1>Worlds Simplest Poker Game</h1>
       <div id="message">Game made for one or more players</div>
-      <div id="cards"></div>
-      <div id="player">
-        <h5>Select upto 4 players</h5>
-        <button id="multiplay" type="button" onclick="playerNumbers()" class="btn">Submit</button>
+      <div id="start">
+        <button id="btnstart" type="button" class="btn">Start Game</button>
       </div>
+      <div id="cards"></div>
       <div id="addCard">
-        <h5>Max 13 cards can be player per player</h5>
         <button id="incrementcard" type="button" onclick="incrementCards()" class="btn">add card</button>
-        <div id="start">
-          <button id="btnstart" type="button" onclick="gameStart()" class="btn">Start Game</button>
-        </div>
       </div>
     </div>
-
   </main>
-
-
-  <script>
-  var message = document.getElementById('message');
-  var cardOutput = document.getElementById('cards');
-
-  var count = 0;
-
-  function gameStart(){
-    message.innerHTML = 'Welcome to the game!';
-    document.getElementById('start').style.display= 'none';
-    document.getElementById('addCard').style.display= 'block';
-    buildCards();
-    shuffleArrays(cards);
-    showCard();
-    cardOutput.innerHTML += showCard();
-  }
-
-  function showCard(){
-    var c = cards[count];
-    var bgColor = (c.icon === 'H' || c.icon === 'D')?'red':'black';
-    return '<span class="sCard "style="color:'+bgColor+'">' + c.num + '&' + c.suit + ';</span>';
-  }
-
-
-
-  </script>
 </body>
 </html>
