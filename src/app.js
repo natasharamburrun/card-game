@@ -59,7 +59,7 @@ window.onload = () => {
   };
 
   dealCard.onclick = () => {
-    for(var i = 0; i < 4; i++) {
+    for(var i = 0; i < 6; i++) {
       if(count < 52) {
         count++;
         cardOutput.innerHTML += showCard();
