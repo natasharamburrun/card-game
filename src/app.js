@@ -1,6 +1,7 @@
 window.onload = () => {
   const message = document.getElementById('message');
   const start = document.getElementById('start');
+  const dealCard = document.getElementById('dealCard');
 
   let cards = [];
   const suits = ['spades','hearts','clubs','diams'];
@@ -8,22 +9,25 @@ window.onload = () => {
 
   const cardOutput = document.getElementById('cards');
 
-  const count = 0;
+  let count = 0;
+
+  const order = [];
 
   start.onclick = () => {
     message.innerHTML = 'Welcome to the game!';
     document.getElementById('start').style.display= 'none';
-    document.getElementById('addCard').style.display= 'none';
+    document.getElementById('dealCard').style.display= 'block';
     buildDeck();
-    playerTwo();
-    playerOne();
+    shuffleArrays(cards);
+    // playerTwo();
+    // playerOne();
   };
 
   const buildDeck = () => {
     cards = [];
-    for(s in suits){
+    for(var s = 0; s < suits.length; s++){
       const suit = suits[s][0].toUpperCase();
-      for(n in numbers){
+      for(var n = 0; n < numbers.length; n++) {
         const card = {
           suit: suits[s],
           num: numbers[n],
@@ -34,6 +38,7 @@ window.onload = () => {
       }
     }
     console.log(cards);
+    return cards;
   };
 
   const shuffleArrays = (array) => {
@@ -53,27 +58,26 @@ window.onload = () => {
     return '<span class="cCard "style="color:'+bgColor+'">' + c.num + '&' + c.suit + ';</span>';
   };
 
-  const playerTwo = () => {
-    shuffleArrays(cards);
-    showCard();
-    cardOutput.innerHTML += showCard();
+  dealCard.onclick = () => {
+    for(var i = 0; i < 4; i++) {
+      if(count < 52) {
+        count++;
+        cardOutput.innerHTML += showCard();
+      }
+    }
+    return false;
   };
 
-  const playerOne = () => {
-    shuffleArrays(cards);
-    showCard();
-    cardOutput.innerHTML += showCard();
-  };
+
+  // const playerTwo = () => {
+  //   shuffleArrays(cards);
+  //   showCard();
+  //   cardOutput.innerHTML += showCard();
+  // };
+  //
+  // const playerOne = () => {
+  //   shuffleArrays(cards);
+  //   showCard();
+  //   cardOutput.innerHTML += showCard();
+  // };
 };
-
-// function incrementCards(a){
-//   count++;
-//   cardOutput.innerHTML += showCard();
-// }
-//
-//
-
-// function winGame(){
-//   var win = false;
-//   if()
-// }
