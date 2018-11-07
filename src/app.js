@@ -78,30 +78,29 @@ window.onload = () => {
     var bgColor = (e.icon === 'H' || e.icon === 'D')?'red':'black';
     return '<span class="eCard "style="color:'+bgColor+'">' + e.num + '&' + e.suit + ';</span>';
   };
+
   dealCardplayer2.onclick = () => {
-    // for(var i = 0; i < 6; i++) {
     if(count < 52) {
       count++;
       cardOutput2.innerHTML += showCard2();
     }
-    // }
     player2.push(cards[count]);
     console.log(player2);
   };
 
-  // cardOutput.map(c => cards[count].cardValue[c.slice(0, -1)]).reduce((a, b) => a + b, 0);
-  // player1Total = (add) => {
-  //   player1.reduce(add);
-  //   console.log(add);
-  // };
+
+  const sum = player1.reduce((value) => {
+    return {
+      cardValue: value.cardValue
+    };
+  });
+  console.log(sum);
+
 
   playerResults.onclick = () => {
-    //sum up the vaules of the cards (using cardValue)
+  //   //map through the array player1 to find cardValue
+  //   //sum up the vaules of the cards
   };
-
-
-  // var win = false;
-  //
 };
 
 
